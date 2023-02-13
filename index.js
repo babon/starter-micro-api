@@ -1,4 +1,3 @@
-var http = require('http');
 
 async function fetchJSON (url, options) {
   let f = await fetch(url, {
@@ -16,14 +15,5 @@ async function fetchJSON (url, options) {
   }
 }
 
-http.createServer(async (req, res) =>
-{
-    console.log("yo");
-    let r = await fetchJSON("https://api.ipify.org?format=json");
-    console.log("yoo");
-    console.log(r);
-    
-    res.write(r);
-    res.write('Yo!');
-    res.end();
-}).listen(process.env.PORT || 3000);
+await fetchJSON("https://api.ipify.org?format=json");
+console.log(r);
