@@ -15,5 +15,5 @@ async function fetchJSON (url, options) {
   }
 }
 
-await fetchJSON("https://api.ipify.org?format=json");
+let r = await fetchJSON("https://api.ipify.org?format=json");
 console.log(r);
