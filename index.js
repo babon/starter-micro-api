@@ -18,8 +18,8 @@ async function fetchJSON (url, options) {
 
 http.createServer(function (req, res) 
 {
-    
-res.write(fetchJSON("https://api.ipify.org?format=json"));
+    let r = await fetchJSON("https://api.ipify.org?format=json");
+    res.write(r);
     
     res.write('Yo!');
     res.end();
