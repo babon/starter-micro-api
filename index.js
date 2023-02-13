@@ -1,6 +1,26 @@
 var http = require('http');
-http.createServer(function (req, res) {
-    console.log(`Just got a request at ${req.url}!`)
+
+async function fetchJSON (url, options) {
+  let f = await fetch(url, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(options?.headers || {}),
+    },
+  });
+  let t = await f.text();
+  try {
+    return JSON.parse(t);
+  } catch (e) {
+    throw new e.constructor(`${e.message} in ${url}\n\n"${t}"`);
+  }
+};
+
+http.createServer(function (req, res) 
+{
+    
+res.write(fetchJSON("https://api.ipify.org?format=json"));
+    
     res.write('Yo!');
     res.end();
 }).listen(process.env.PORT || 3000);
