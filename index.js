@@ -14,7 +14,7 @@ async function fetchJSON (url, options) {
   } catch (e) {
     throw new e.constructor(`${e.message} in ${url}\n\n"${t}"`);
   }
-};
+}
 
 http.createServer(function (req, res) 
 {
