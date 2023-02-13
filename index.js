@@ -5,7 +5,6 @@ async function fetchJSON (url, options) {
     ...options,
     headers: {
       "Content-Type": "application/json",
-      "cookie" : "_2gis_webapi_session=a6a28bb7-9571-4d17-8d93-ce8e480b2389; _2gis_webapi_user=8bd92ace-3941-4215-91bd-85b58fca3ddb; ipp_uid=1670664320276/x78i2mgNGKE9UWN8/0sA4P4yeddyEtCkk44BEjQ==; ipp_key=v1676211966478/v33947245ba5adc7a72e273/BzSCuXwuFulLtiYYsu9tlg==",
       ...(options?.headers || {}),
     },
   });
