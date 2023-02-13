@@ -16,13 +16,14 @@ async function fetchJSON (url, options) {
   }
 }
 
-http.createServer(function (req, res) 
+http.createServer(async (req, res) =>
 {
     console.log("yo");
-    //let r = await fetchJSON("https://api.ipify.org?format=json");
+    let r = await fetchJSON("https://api.ipify.org?format=json");
     console.log("yoo");
-    //console.log(r);
+    console.log(r);
     
+    res.write(r);
     res.write('Yo!');
     res.end();
 }).listen(process.env.PORT || 3000);
